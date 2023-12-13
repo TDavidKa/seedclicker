@@ -1,0 +1,222 @@
+html, body{
+    background-color: #896A26;
+    width: 98vw;
+    height: 98vh;
+    box-sizing: border-box;
+}
+section{
+    background-color: #FFF9EB;
+    box-sizing: border-box;
+    border: 1px black solid;
+}
+/* IDs */
+#seedSct{
+    width: 33vw;
+    height: 59vh;
+    text-align: center;
+}
+#seedImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    height: 75%;
+    rotate: 315deg;
+}
+
+#gardenSct{
+    width: 65vw;
+    height: 59vh;
+}
+
+#gardenCanv{
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#upgradesSct{
+    width: 44vw;
+    height: 39vh;    
+}
+
+#plantsSct{
+    width: 54vw;
+    height: 39vh;
+}
+
+#plantDiv{
+    overflow-y: scroll;
+    height: 25vh;
+}
+
+#sectAchv{
+    width: 80vw;
+    height: 85vh;
+    margin: auto;
+    margin-top: 1.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content:start;
+    padding: 1%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    border-radius: 100px;
+}
+
+#achvButton, #achvButtonBack{
+    background-color: #E6DAA2;
+    float: right;
+    margin: 1%;
+}
+
+#menuButton, #menuButtonBack{
+    background-color: #E6DAA2;
+    float: left;
+}
+
+#mainMenu{
+    width: 25vw;
+    height: 100.5vh;
+    position: absolute;
+    top: -2.5vh;
+    left: 0px;
+    padding: 1%;
+    background-color: #FFF9EB;
+    box-sizing: border-box;
+}
+/* Used the following link as reference: */
+/* https://www.w3schools.com/howto/howto_css_overlay.asp */
+#overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    box-sizing: border-box;
+}
+
+#menu{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+/* Classes */
+
+.sectHead{
+    background-color: #E6DAA2;
+    border: 1px black solid;
+    border-radius: 100px;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.fLeft{
+    padding: 1%;
+    float: left;
+    box-sizing: border-box;
+}
+
+.fRight{
+    padding: 1%;
+    float: right;
+    box-sizing: border-box;
+}
+
+.plant{
+    width: 47vw;
+    height: 10vh;
+    margin: .25% 0%;
+    padding: .5% 1%;
+    border: 1px black solid;
+    border-radius: 100px;
+    background-color: #E6DAA2;
+    box-sizing: border-box;
+}
+
+.plant h3, .plant p{
+    margin: 1% 12.5%;
+}
+
+.plant img{
+    width: 5vw;
+    height: auto;
+    margin: auto 0;
+    display: block;
+    float: left;
+}
+
+.achv{
+    width: 45%;
+    height: 10%;
+    margin: .25% 0%;
+    padding: .5% 1%;
+    border: 1px black solid;
+    border-radius: 100px;
+    background-color: #E6DAA2;
+    box-sizing: border-box;
+}
+
+.achvIncomp{
+    width: 45%;
+    height: 10%;
+    margin: .25% 0%;
+    padding: .5% 1%;
+    border: 1px black solid;
+    border-radius: 100px;
+    background-color: #9c9471;
+    box-sizing: border-box;
+}
+
+.achv img, .achvIncomp img{
+    width: 4vw;
+    height: 4vw;
+    margin: auto 0;
+    display: block;
+    float: left;
+}
+.achv h3, .achvIncomp h3{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 12.5%;
+    font-size: 2vh;
+    font-weight: bolder;
+}
+
+.achv p, .achvIncomp p{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 12.5%;
+    font-size: 1.55vh;
+}
+
+.achvIncomp h3, .achvIncomp p{
+    color: rgb(49, 49, 49);
+}
+
+.clear{
+    clear: both;
+}
+
+.menuOption{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    border: 3px black solid;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #FFEBBD;
+}

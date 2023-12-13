@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang = "EN-US">
+    <!-- Note:  -->
+    <head>
+        <title>Main</title>
+        <meta name="author" content="David Kaufman">
+        <meta name="page" content="Main">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+
+    <body>
+        <div id="container">
+
+            <section id="seedSct" class="fLeft">
+                <button id="menuButton" onclick="menuToggle()">Menu</button>
+                <div class="clear"></div>
+                <h3>Seeds: <span id = "seedAmt">0</span></h3>
+                <h3>Seeds Per Second: <span id="seedPerSec">0</span></h3>
+                <img id="seedImg" src = "images/seedClip.png" width=50 height = 75 onmouseover="seedMouseOver(this)" onmouseleave ="seedMouseLeave(this)" onmousedown="seedMouseDown(this)" onmouseup="seedMouseUp(this)">
+            </section>
+
+            <section id="gardenSct" class="fRight">
+                <button id="achvButton" onclick="overlayToggle()">Achievements</button>
+                <h2 class="sectHead">Garden</h2>
+                <div id="gardenCanv"></div>
+            </section>
+            
+            <div class="clear"></div>
+
+            <section id="plantsSct" class="fLeft">
+                <h2 class = "sectHead">Plants</h2>
+                <div id="plantDiv">
+                    <!-- Seed: Level 1 plant -->
+                    <article id="seed" class="plant" onmousedown="onBuy(0)">
+                        <img src="images/seedAchv.png" width="75" height="75">
+                        <h3>Seed</h3>
+                        <p>Cost: <span id="seedPlantCost">50</span> Owned: <span id="seedPlantOwned">0</span><p> <p> Per Sec: 0.1</p>
+                        <div class="clear"></div>
+                    </article>
+                    <!-- Sunflower: Level 2 plant -->
+                    <article id="sunflower" class="plant" onmousedown="onBuy(1)">
+                        <img src="images/sun.png" width="75" height="75">
+                        <h3>Sunflower</h3>
+                        <p>Cost: <span id="sunPlantCost">100</span> Owned: <span id="sunPlantOwned">0</span><p> <p> Per Sec: 5</p>
+                        <div class="clear"></div>
+                    </article>
+                    <!-- Tomato: Level 3 Plant -->
+                    <article id="tomato" class="plant" onmousedown="onBuy(2)">
+                        <img src="images/tomato.png" width="75" height="75">
+                        <h3>Tomato</h3>
+                        <p>Cost: <span id="tomatoPlantCost">1024</span> Owned: <span id="tomatoPlantOwned">0</span><p> <p> Per Sec: 25</p>
+                        <div class="clear"></div>
+                    </article>
+                    <!-- Orchid: Level 4 Plant -->
+                    <article id="orchid" class="plant" onmousedown="onBuy(3)">
+                        <img src="images/orchid.png" width="75" height="75">
+                        <h3>Orchid</h3>
+                        <p>Cost: <span id="orchidPlantCost">4096</span> Owned: <span id="orchidPlantOwned">0</span><p><p> Per Sec: 128</p>
+                        <div class="clear"></div>
+                    </article>
+                    <!-- Apple: Level 5 Plant -->
+                    <article id="apple" class="plant" onmousedown="onBuy(4)">
+                        <img src="images/apple.png" width="75" height="75">
+                        <h3>Apple</h3>
+                        <p>Cost: <span id="applePlantCost">9890</span> Owned: <span id="applePlantOwned">0</span><p><p> Per Sec: 512</p>
+                        <div class="clear"></div>
+                    </article>
+                    <!-- Rose: Level 5 Plant -->
+                    <article id="rose" class="plant" onmousedown="onBuy(5)">
+                        <img src="images/rose.png" width="75" height="75">
+                        <h3>Rose</h3>
+                        <p>Cost: <span id="rosePlantCost">23240</span> Owned: <span id="rosePlantOwned">0</span><p><p> Per Sec: 1536</p>
+                        <div class="clear"></div>
+                    </article>
+                </div>
+            </section>
+ 
+            <section id="upgradesSct" class="fRight">
+                <h2 class = "sectHead">Upgrades</h2>                
+            </section>
+        </div>
+
+        <!-- //////////////////////////////////////////////////////////////////// -->
+
+        <!-- The achievements overlay -->
+        <div id="overlay">    
+            <button id="achvButtonBack" onclick="overlayToggle()">Back</button>
+            <header class="sectHead">
+                <h1>Achievements</h1>
+            </header>
+            <section id = "sectAchv">
+                <article id="click-1" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-2" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-3" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-4" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-5" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-6" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-7" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-8" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-9" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-10" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-11" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-12" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-13" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-14" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-15" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-16" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-17" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-18" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-19" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-20" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-21" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-22" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-23" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-24" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-25" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-26" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-27" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-28" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-29" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-30" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-31" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+                <article id="click-32" class="achvIncomp">
+                    <img src="images/seedAchv.png" width="75" height="75">
+                    <h3>Click!</h3>
+                    <p>Clicked the seed for the first time!</p>
+                </article>
+            </section>
+        </div>
+
+        <!-- //////////////////////////////////////////////////////////////////// -->
+        <div id="menu">
+            <menu id="mainMenu">
+                <button id="menuButtonBack" onclick="menuToggle()">Back</button>
+                <div class="clear"></div>
+                <section class="menuOption" onclick="location.href='#'" onmouseover="changeMenuColor(this)" onmouseleave="menuColorBack(this)">
+                    <h2>Introduction</h2>
+                    <p>Welcome Page</p>
+                </section>
+                <section class="menuOption" onclick="location.href='#'" onmouseover="changeMenuColor(this)" onmouseleave="menuColorBack(this)">
+                    <h2>Game</h2>
+                    <p>Play The Game!</p>
+                </section>
+                <section class="menuOption" onclick="location.href='#'" onmouseover="changeMenuColor(this)" onmouseleave="menuColorBack(this)">
+                    <h2>How-To</h2>
+                    <p>Learn How to Play</p>
+                </section>
+            </menu>
+        </div>
+        
+        <!-- Script References -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+        <script src="script.js"></script>
+        <script src="sketch.js"></script>
+    </body>
+
+</html>

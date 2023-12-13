@@ -9,6 +9,7 @@ section{
     box-sizing: border-box;
     border: 1px black solid;
 }
+
 /* IDs */
 #seedSct{
     width: 33vw;
@@ -62,7 +63,6 @@ section{
     padding: 1%;
     box-sizing: border-box;
     overflow-y: scroll;
-    border-radius: 100px;
 }
 
 #achvButton, #achvButtonBack{
@@ -151,11 +151,12 @@ section{
 }
 
 .plant img{
-    width: 5vw;
+    max-width: 100%;
     height: auto;
     margin: auto 0;
     display: block;
     float: left;
+    object-fit: scale-down;
 }
 
 .achv{

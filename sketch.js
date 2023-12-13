@@ -75,8 +75,8 @@ function spawnSunflower(){
     }
 }
 
-var tomatoYmin = 17 * theCanvHeight / 20;
-var tomatoYmax = 15 * theCanvHeight / 20;
+var tomatoYmin = 16 * theCanvHeight / 20;
+var tomatoYmax = 14 * theCanvHeight / 20;
 function spawnTomato(){
     //only spawns a maximum of 25 tomato plants, to ensure the canvas isn't entirely 
     //overtaken by them!
@@ -90,8 +90,8 @@ function spawnTomato(){
     }
 }
 
-var orchidYmin =  14 * theCanvHeight / 20;
-var orchidYmax = 13 * theCanvHeight / 20;
+var orchidYmin =  12 * theCanvHeight / 20;
+var orchidYmax = 10 * theCanvHeight / 20;
 function spawnOrchid(){
     //only spawns a maximum of 25 orchids, to ensure the canvas isn't entirely 
     //overtaken by them!
@@ -107,23 +107,24 @@ function spawnOrchid(){
 
 //since apples are trees, they spawn in the farthest row back. they're in this spot
 //in the functions because they're purchasable before roses.
-var appleYmin =  10 * theCanvHeight / 20;
-var appleYmax = 9 * theCanvHeight / 20;
+
+//also the spawn area is slightly lower so no trees spawn floating :P
+var appleYmin =  4 * theCanvHeight / 20;
+var appleYmax = 3 * theCanvHeight / 20;
 function spawnApple(){
-    //only spawns a maximum of 10 apples, to ensure the canvas isn't entirely 
+    //only spawns a maximum of 10 apple trees, to ensure the canvas isn't entirely 
     //overtaken by them!
-    if(plantsCanv[3].length < 11){
+    if(plantsCanv[4].length < 11){
         let plantX = random(0, theCanvWidth);
-        let plantY = random(orchidYmin, orchidYmax);
-        console.log(plantX + " " + plantY);
-        plantsCanv[3].push(new Orchid(plantX, plantY)); 
-        console.log(plantsCanv[3]);
+        let plantY = random(appleYmin, appleYmax);
+        plantsCanv[3].push(new Apple(plantX, plantY)); 
+        console.log(plantsCanv[4]);
         draw();
     }
 }
 
-var roseYmin =  12 * theCanvHeight / 20;
-var roseYmax = 11 * theCanvHeight / 20;
+var roseYmin =  8 * theCanvHeight / 20;
+var roseYmax = 6 * theCanvHeight / 20;
 function spawnRose(){
     //only spawns a maximum of 25 roses, to ensure the canvas isn't entirely 
     //overtaken by them!
@@ -213,8 +214,10 @@ class Orchid{
     
     spawn(){
         noFill();
+        //the stem
         strokeWeight(4);
         stroke("#6A9955");
+        //beziers are complicated 😒
         let x1 = this.x;
         let y1 = this.y;
         let x2 = this.x;
@@ -241,6 +244,41 @@ class Orchid{
         circle(x4+circleR/2, y4+circleR/2+6, circleR);
         circle(x4+circleR, y4+circleR/2+10, circleR);
         
+    }
+}
+
+class Apple{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+
+    spawn(){
+        fill("#BF8D65");
+        noStroke();
+        let rectWidth = theCanvWidth/35;
+        let rectHeight = theCanvHeight/6;
+        //the base of the tree
+        //apparently this.x and this.y refers to the center top of the tree trunk
+        rect(this.x - rectWidth/2, this.y, rectWidth, rectHeight);
+        arc(this.x, this.y + rectHeight, 3*rectWidth/2, 3*rectWidth/2, PI, 0);
+
+        //leaves
+        fill("#6A9955");
+        circle(this.x, this.y-rectHeight/2, rectWidth*2);
+        circle(this.x+rectWidth/2, this.y, rectWidth*2);
+        circle(this.x-rectWidth/2, this.y, rectWidth*2);
+
+        //apples!
+        //I tried to randomize them in a "for" loop, but they would randomize *every*
+        //time I added a new apple tree, even the ones that had already spawned.
+        //so instead, I just used set locations for each apple.
+        fill("#FF0024");
+        circle(this.x + rectWidth/7, this.y + rectHeight/8, rectWidth/4);
+        circle(this.x + 3*rectWidth/5, this.y - rectHeight/2, rectWidth/4);
+        circle(this.x - 3*rectWidth/5, this.y + rectHeight/5, rectWidth/4);
+        circle(this.x - 4*rectWidth/5, this.y + rectHeight/17, rectWidth/4);
+        circle(this.x - 3*rectWidth/17, this.y - 2*rectHeight/3, rectWidth/4);
     }
 }
 

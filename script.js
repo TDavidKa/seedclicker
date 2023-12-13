@@ -78,6 +78,7 @@ function onBuy(plantNum){
         else if(plantNum == 4){
             document.querySelector("#applePlantCost").innerHTML = prices[4];
             document.querySelector("#applePlantOwned").innerHTML = plants[4];
+            spawnApple();
         }
         else if(plantNum == 5){
             document.querySelector("#rosePlantCost").innerHTML = prices[5];

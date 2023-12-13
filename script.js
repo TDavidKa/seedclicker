@@ -2,7 +2,7 @@
 change. The scale on a lot of the plant prices is really wacky, but I'm not entirely 
 sure what calculations to do to tune them to ne fairer.*/
 
-var seeds = 1000000;
+var seeds = 0;
 var perSec = 0;
 
 //The amount of purchasable plants: Seeds, Sunflower, Tomato, Orchid, Apple, Rose
@@ -141,4 +141,11 @@ function menuToggle(){
     else{
         menu.style.display = "none";
     }
+}
+
+function changeMenuColor(obj){
+    obj.style.background = "#FAEFD4";
+}
+function menuColorBack(obj){
+    obj.style.background = "#FFEBBD";
 }

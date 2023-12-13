@@ -128,7 +128,7 @@ function spawnApple(){
     if(plantsCanv[4].length < 11){
         let plantX = random(0, theCanvWidth);
         let plantY = random(appleYmin, appleYmax);
-        plantsCanv[3].push(new Apple(plantX, plantY)); 
+        plantsCanv[4].push(new Apple(plantX, plantY)); 
         console.log(plantsCanv[4]);
         draw();
     }
@@ -144,18 +144,10 @@ function spawnRose(){
     if(plantsCanv[5].length < 26){
         let plantX = random(0, theCanvWidth);
         let plantY = random(roseYmin, roseYmax);
-        let roseColor = int(random(0, roseColors.length-1));
-        console.log(roseColors[roseColor]);
-        plantsCanv[5].push(new Rose(plantX, plantY, roseColors[roseColor]));
+        let c = int(random(0, roseColors.length-1));
+        plantsCanv[5].push(new Rose(plantX, plantY, roseColors[c]));
         draw();
     }
-}
-
-function changeMenuColor(obj){
-    obj.style.background = "#FAEFD4";
-}
-function menuColorBack(obj){
-    obj.style.background = "#FFEBBD";
 }
 
 class Sunflower{

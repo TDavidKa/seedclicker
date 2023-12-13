@@ -221,3 +221,13 @@ section{
     text-align: center;
     background-color: #FFEBBD;
 }
+
+.steps{
+    width: 75vw;
+    height: auto;
+    border-radius: 100px;
+    padding: 1% 5%;
+}
+.steps p{
+    font-size: large;
+}

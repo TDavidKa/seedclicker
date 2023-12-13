@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang = "EN-US">
+    <head>
+        <title>Plant Tapper Game</title>
+        <meta name="author" content="David Kaufman">
+        <meta name="page" content="Plant Tapper Game">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <div id="container">
+            <button id="menuButton" class="fLeft" onclick="menuToggle()">Menu</button>
+            <h1 class="sectHead">HOW-TO CLICK</h1>
+            <section class="fLeft steps">
+                <h2 class="sectHead">STEP 1: CLICK</h2>
+                <p>&emsp;In the top-left section of the page, you will notice a large seed. This is the first step in your gardening journey, and will allow you to purchase other plants. To begin, simply click the seed. Now, you have collected one seed. Congradulations!</p>
+                
+            </section>
+            <img src="images/gif1.gif" class="fRight" width="23%" height="auto" alt="A GIF of a user clicking on a seed a few times, filling the seed counter">
+            <div class="clear"></div>
+            <section class="fRight steps">
+                <h2 class="sectHead">STEP 2: CLICK</h2>
+                <p>&emsp;Once you've collected a sufficient number of seeds, you're ready to buy your first plant! Oh, it's called Seeds again? What a creative name. Now you have a steady supply of 0.1 seeds coming to you automatically per second. What an honor! Want more? Buy More!</p>
+            </section>
+            <img src="images/gif2.gif" class = "fLeft" width="23%" height="auto" alt="A GIF of a user clicking on a seed a few times, panning down to another menu, and clicking on another 'seeds' option. It pans back upwards, notices the Seeds Per Second counter has changed, and continues clicking the seed">
+            <div class="clear"></div>
+            <section class="fLeft steps">
+                <h2 class="sectHead">STEP 3: CLICK</h2>
+                <p>&emsp;Look to the top right of the screen. What a pretty little garden. You'll notice that purchasing plants will add them to the garden. Sweet! You can't really interact with them, but feel free to click them as many times as you want.</p>
+            </section>
+            <img src="images/gif3.gif" class="fRight" width="23%" height="auto" alt="A GIF of the garden on the main page. A few plants occasionally pop up, followed by the mouse moving around and attempting to click.">
+            <div class="clear"></div>
+            <section class="fLeft steps" style="width: 97vw;">
+                <h2 class="sectHead">IN SUMMARY</h2>
+                <p>&emsp;Click, click, click, click, click, click, click. Click click click click, click click. Click click click; click, click click click, click click. click click click click?
+                    <ol>
+                        <li>Click: Click click click.</li>
+                        <li>Click: Click click? Click click click click</li>
+                        <li>Click: Click.</li>
+                    </ol>
+                &emsp;Click, click, click, click click click click. Click click click click, click click. Click click click click, click click click, click click. Click click click click. Click! Click click click click click. Click click click, click, click? Click click click click click click click click. Click click click click. Click click click.
+                </p>
+            </section>
+        </div>
+
+        <!-- //////////////////////////////////////////////////////////////////// -->
+        <div id="menu">
+            <menu id="mainMenu">
+                <button id="menuButtonBack" onclick="menuToggle()">Back</button>
+                <div class="clear"></div>
+                <section class="menuOption" onclick="location.href='#'" onmouseover="changeMenuColor(this)" onmouseleave="menuColorBack(this)">
+                    <h2>Introduction</h2>
+                    <p>Welcome Page</p>
+                </section>
+                <section class="menuOption" onclick="location.href='index.html'" onmouseover="changeMenuColor(this)" onmouseleave="menuColorBack(this)">
+                    <h2>Game</h2>
+                    <p>Play The Game!</p>
+                </section>
+                <section class="menuOption" onclick="location.href='#'" onmouseover="changeMenuColor(this)" onmouseleave="menuColorBack(this)">
+                    <h2>How-To</h2>
+                    <p>Learn How to Play</p>
+                </section>
+                <section class="menuOption" onmouseover="changeMenuColor(this)" onmouseleave="menuColorBack(this)">
+                    <h2><a href="https://github.com/TDavidKa/NMD211FINAL" target="_blank" rel="noopener noreferrer nofollow">Git-Hub</a></h2>
+                    <p>See the code for this project!</p>
+                </section>
+            </menu>
+        </div>
+    <script src="script.js"></script>
+    </body>
+</html>

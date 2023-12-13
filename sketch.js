@@ -3,13 +3,14 @@
 var gardenDiv = document.getElementById("gardenSct");
 var theCanvWidth = 9 * gardenDiv.offsetWidth / 10;
 var theCanvHeight = 8 * gardenDiv.offsetHeight / 10;
+var canvas;
 console.log(theCanvWidth + " " + theCanvHeight);
 
 //2D array of all purchasable plants: Seeds, Sunflower, Tomato, Orchid, Apple, Rose
 var plantsCanv = [[], [], [], [], [], []];
 
 function setup(){
-    var canvas = createCanvas(theCanvWidth, theCanvHeight);
+    canvas = createCanvas(theCanvWidth, theCanvHeight);
     canvas.parent('gardenCanv');
     //Begins the "seeds per second" function
     seedsPerSec();
@@ -55,6 +56,15 @@ function draw(){
     noLoop();
 }
 
+//Automatically redraws the canvas if the webpage is resized.
+function windowResized(){
+    theCanvWidth = 9 * gardenDiv.offsetWidth / 10;
+    theCanvHeight = 8 * gardenDiv.offsetHeight / 10;
+    canvas = createCanvas(theCanvWidth, theCanvHeight);
+    canvas.parent('gardenCanv');
+    draw();
+}
+
 //the 'floor' is 3/4ths of the canvas, which needs to be split into 5 segments for the 5
 //different plant types. 3/4 * 1/5 = 3/20ths, so each plant will have 3/20ths of the
 //screen to spawn in (rounded to 2/20ths, so there's some space between them)
@@ -75,8 +85,8 @@ function spawnSunflower(){
     }
 }
 
-var tomatoYmin = 16 * theCanvHeight / 20;
-var tomatoYmax = 14 * theCanvHeight / 20;
+var tomatoYmin = 17 * theCanvHeight / 20;
+var tomatoYmax = 15 * theCanvHeight / 20;
 function spawnTomato(){
     //only spawns a maximum of 25 tomato plants, to ensure the canvas isn't entirely 
     //overtaken by them!
@@ -90,8 +100,8 @@ function spawnTomato(){
     }
 }
 
-var orchidYmin =  12 * theCanvHeight / 20;
-var orchidYmax = 10 * theCanvHeight / 20;
+var orchidYmin =  14 * theCanvHeight / 20;
+var orchidYmax = 12 * theCanvHeight / 20;
 function spawnOrchid(){
     //only spawns a maximum of 25 orchids, to ensure the canvas isn't entirely 
     //overtaken by them!
@@ -107,10 +117,11 @@ function spawnOrchid(){
 
 //since apples are trees, they spawn in the farthest row back. they're in this spot
 //in the functions because they're purchasable before roses.
-
-//also the spawn area is slightly lower so no trees spawn floating :P
+//The numbers are also a little higher because the x and y values represent the top
+//of the tree trunk, not the bottom
 var appleYmin =  4 * theCanvHeight / 20;
 var appleYmax = 3 * theCanvHeight / 20;
+
 function spawnApple(){
     //only spawns a maximum of 10 apple trees, to ensure the canvas isn't entirely 
     //overtaken by them!
@@ -123,17 +134,19 @@ function spawnApple(){
     }
 }
 
-var roseYmin =  8 * theCanvHeight / 20;
-var roseYmax = 6 * theCanvHeight / 20;
+//a little bit of fun! also randomizes the rose's color from this list
+var roseColors = ["#FF0024", "#D6283F", "#E25F70", "#9B0317", "#CE5868", "#F9596F", "#FCB0BA", "#7A0E1D", "#161616", "#2336B2"];
+var roseYmin =  11 * theCanvHeight / 20;
+var roseYmax = 9 * theCanvHeight / 20;
 function spawnRose(){
     //only spawns a maximum of 25 roses, to ensure the canvas isn't entirely 
     //overtaken by them!
-    if(plantsCanv[3].length < 26){
+    if(plantsCanv[5].length < 26){
         let plantX = random(0, theCanvWidth);
-        let plantY = random(orchidYmin, orchidYmax);
-        console.log(plantX + " " + plantY);
-        plantsCanv[3].push(new Orchid(plantX, plantY)); 
-        console.log(plantsCanv[3]);
+        let plantY = random(roseYmin, roseYmax);
+        let roseColor = int(random(0, roseColors.length-1));
+        console.log(roseColors[roseColor]);
+        plantsCanv[5].push(new Rose(plantX, plantY, roseColors[roseColor]));
         draw();
     }
 }
@@ -279,6 +292,36 @@ class Apple{
         circle(this.x - 3*rectWidth/5, this.y + rectHeight/5, rectWidth/4);
         circle(this.x - 4*rectWidth/5, this.y + rectHeight/17, rectWidth/4);
         circle(this.x - 3*rectWidth/17, this.y - rectHeight/3, rectWidth/4);
+    }
+}
+
+class Rose{
+    constructor(x, y, col){
+        this.x = x;
+        this.y = y;
+        this.col = col;
+    }
+
+    spawn(){
+        //The Stem
+        strokeWeight(4);
+        stroke("#6A9955");
+        line(this.x, this.y, this.x, this.y-theCanvHeight/10);
+
+        //Flower
+        fill(this.col);
+        noStroke();
+        let roseWidth = theCanvWidth/65;
+        let roseHeight = theCanvWidth/85;
+        rect(this.x-roseWidth/2, (this.y-theCanvHeight/10)-roseHeight/2, roseWidth, roseHeight);
+
+        //I've found that slightly modifying the location of these sorts of shapes (such as a simple
+        //-1) can cause them to overlap, so they look like the same shape together :)
+        arc(this.x, this.y-theCanvHeight/10+roseHeight/2-1, roseWidth, roseHeight, 0, PI);
+        
+        arc(this.x-roseWidth/2, (this.y-theCanvHeight/10)-roseHeight/2+1, roseWidth, roseHeight, 3*PI/2, 0);
+        arc(this.x+roseWidth/2, (this.y-theCanvHeight/10)-roseHeight/2+1, roseWidth, roseHeight, PI, 3*PI/2);
+
     }
 }
 

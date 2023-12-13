@@ -83,6 +83,7 @@ function onBuy(plantNum){
         else if(plantNum == 5){
             document.querySelector("#rosePlantCost").innerHTML = prices[5];
             document.querySelector("#rosePlantOwned").innerHTML = plants[5];
+            spawnRose();
         }
     }
 }

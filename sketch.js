@@ -265,7 +265,7 @@ class Apple{
 
         //leaves
         fill("#6A9955");
-        circle(this.x, this.y-rectHeight/2, rectWidth*2);
+        circle(this.x, this.y-rectWidth, rectWidth*2);
         circle(this.x+rectWidth/2, this.y, rectWidth*2);
         circle(this.x-rectWidth/2, this.y, rectWidth*2);
 
@@ -278,7 +278,7 @@ class Apple{
         circle(this.x + 3*rectWidth/5, this.y - rectHeight/2, rectWidth/4);
         circle(this.x - 3*rectWidth/5, this.y + rectHeight/5, rectWidth/4);
         circle(this.x - 4*rectWidth/5, this.y + rectHeight/17, rectWidth/4);
-        circle(this.x - 3*rectWidth/17, this.y - 2*rectHeight/3, rectWidth/4);
+        circle(this.x - 3*rectWidth/17, this.y - rectHeight/3, rectWidth/4);
     }
 }
 
